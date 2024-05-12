@@ -26,6 +26,11 @@
 # Visual Studio cache directory
 .vs/
 
+# Ignore large files
+Assets/Firebase/Plugins/*/FirebaseCppApp-*.so
+Assets/Firebase/Plugins/*/FirebaseCppApp-*.bundle
+Assets/SocialAppTemplate/FirebaseCloudFunctions/FirebaseFunctions.rar
+
 # Gradle cache directory
 .gradle/
 
