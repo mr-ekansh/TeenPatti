@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "511712149088",
+    "firebase_url": "https://khel-tamasha.firebaseio.com",
+    "project_id": "khel-tamasha",
+    "storage_bucket": "khel-tamasha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511712149088:android:3ecb109b20481b0eb10d05",
+        "android_client_info": {
+          "package_name": "com.tamasha.kheltamasha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511712149088-2l9oe06veh7m1hquqfjs7e0t5r4hev7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDXsvzpAi1CIYFSMwBxdmfaltxyc9Io2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511712149088-2l9oe06veh7m1hquqfjs7e0t5r4hev7b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

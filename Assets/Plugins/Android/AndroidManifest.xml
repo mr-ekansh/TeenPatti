@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.tamasha.kheltamasha" android:versionCode="1" android:versionName="1.0">
+  <application android:label="@string/app_name" android:icon="@drawable/app_icon" android:usesCleartextTraffic="true" android:resizeableActivity="false" android:exported="true">
+    <!-- The MessagingUnityPlayerActivity is a class that extends
+         UnityPlayerActivity to work around a known issue when receiving
+         notification data payloads in the background. -->
+    <!--<activity android:name="com.worklooper.worklooperread.UnityPlayerActivityExtension" android:label="@string/app_name" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:hardwareAccelerated="true"  android:exported="true">-->
+    <activity android:name="com.google.firebase.MessagingUnityPlayerActivity" android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+      </intent-filter>
+      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+      <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="true" />
+    </activity>
+    <provider android:name="androidx.core.content.FileProvider" android:authorities="com.tamasha.kheltamasha.fileprovider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths" />
+    </provider>
+    <service android:name="com.google.firebase.messaging.MessageForwardingService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"></service>
+    <provider android:name="com.yasirkula.unity.NativeCameraContentProvider" android:authorities="com.tamasha.kheltamasha" android:exported="false" android:grantUriPermissions="true" tools:replace="android:authorities" />
+    <activity android:name="com.onevcat.uniwebview.UniWebViewFileChooserActivity" />
+
+    <receiver android:name="com.abk.cashfeeplugin.SmsListener" android:enabled="true" android:exported="true">
+      <intent-filter>
+        <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+      </intent-filter>
+    </receiver>
+    
+  </application>
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="com.android.vending.BILLING" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="replace" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <!--Access Internet for web content-->
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+  <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+  <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+  <uses-permission android:name="android.permission.RECEIVE_SMS" />
+  <uses-permission android:name="android.permission.READ_SMS" />
+  <uses-permission android:name="android.permission.BROADCAST_SMS" />
+  <!--for Samsung-->
+  <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+  <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+  <!--for huawei-->
+  <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
+  <!--for OPPO-->
+  <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />
+  <!--for htc-->
+  <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+</manifest>

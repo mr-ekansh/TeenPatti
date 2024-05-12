@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1592134960639144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4297743957606070}
+  - component: {fileID: 114853170251774168}
+  - component: {fileID: 114816716243277372}
+  m_Layer: 5
+  m_Name: PlayerConectedPun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4297743957606070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592134960639144}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -919, y: -209, z: 0}
+  m_LocalScale: {x: 1.0000062, y: 1.0000062, z: 1.0000062}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114853170251774168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592134960639144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 1
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 114816716243277372}
+  sceneViewId: 0
+  InstantiationId: -1
+  isRuntimeInstantiated: 0
+--- !u!114 &114816716243277372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592134960639144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0134fd9f360cacd4dba52a40069187b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData:
+    playerType: 0
+    currentCombination: 0
+    Money: 0
+    Chips: 0
+    step: 0
+    currentBootPlayer: 0
+    experience: 0
+    IsDoubleBoot: 0
+    IsSeenCard: 0
+    IsLocalPlayer: 0
+    isSideShow: 0
+    isSentSideShow: 0
+    IsPacked: 0
+    NamePlayer: 
+    _MobileNumber: 
+    _RandNext: 0
+    _Email: 
+    _DeviceID: 
+    _DistributionId: 
+    _Gender: 
+    currentCards: []
+    BlindCount: 0
+    IsBot: 0
+    IsFinished: 0
+    AndarBet: 0
+    BaharBet: 0
+    AvatarPic: 0
+    uploadPic: 
+    _CurrentTimer: 0
+    isPlayerActive: 0
+    isDisconnect: 0
+    isDestroyed: 0
+    isPause: 0
+  myUI: {fileID: 0}
+  localPlayer: {fileID: 0}
+  managerMain: {fileID: 0}
+  hud: {fileID: 0}

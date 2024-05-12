@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Pot4
+  - Ball
+  - WhiteBall
+  - Pot3
+  - bumper
+  - Pot6
+  - Pot1
+  - WhiteBallLimit
+  - Pot2
+  - Pot5
+  - callPocket
+  - Ball1
+  - Ball2
+  - Ball3
+  - Ball4
+  - Ball5
+  - Ball6
+  - Ball7
+  - Ball8
+  - Ball9
+  - Ball10
+  - Ball11
+  - Ball12
+  - Ball13
+  - Ball14
+  - Ball15
+  - CueForcePower
+  - CueAimPower
+  - CueTimePower
+  - Pot
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - WhiteBall
+  - Pots
+  - Balls
+  - WhiteBallBeforeCollision
+  - PostProcessing
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: tableLayer
+    uniqueID: 1141101921
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Scratach
+    uniqueID: 935507183
+    locked: 0

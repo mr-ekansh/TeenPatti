@@ -1,0 +1,37 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Windows\system32>cd C:\Program Files\Java\jdk1.8.0_151\bin
+
+C:\Program Files\Java\jdk1.8.0_151\bin>keytool -exportcert -list -v -alias kheltamasha -keystore kheltamasha.keystore
+Enter keystore password:
+Alias name: kheltamasha
+Creation date: Oct 19, 2020
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: O=games
+Issuer: O=games
+Serial number: 33a91aca
+Valid from: Mon Oct 19 13:57:14 IST 2020 until: Tue Oct 07 13:57:14 IST 2070
+Certificate fingerprints:
+         MD5:  95:39:9B:91:96:DA:B7:C8:43:A6:D1:E5:5A:D7:1F:9A
+         SHA1: 67:38:5E:CC:17:2F:99:6A:B7:A0:0A:8E:3A:AC:26:55:F8:36:16:8C
+         SHA256: 6A:6D:C6:B5:57:D0:35:97:33:56:E1:40:02:B4:92:20:45:1E:73:07:9A:
+C9:2E:B4:6A:E2:4B:CB:36:8C:F9:0E
+Signature algorithm name: SHA1withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 3
+
+Warning:
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS
+12 which is an industry standard format using "keytool -importkeystore -srckeyst
+ore kheltamasha.keystore -destkeystore kheltamasha.keystore -deststoretype pkcs1
+2".
+
+C:\Program Files\Java\jdk1.8.0_151\bin>
+C:\Program Files\Java\jdk1.8.0_151\bin>^A
+
+ MD5:  95:39:9B:91:96:DA:B7:C8:43:A6:D1:E5:5A:D7:1F:9A
+         SHA1: 67:38:5E:CC:17:2F:99:6A:B7:A0:0A:8E:3A:AC:26:55:F8:36:16:8C
+         SHA256: 6A:6D:C6:B5:57:D0:35:97:33:56:E1:40:02:B4:92:20:45:1E:73:07:9A:C9:2E:B4:6A:E2:4B:CB:36:8C:F9:0E

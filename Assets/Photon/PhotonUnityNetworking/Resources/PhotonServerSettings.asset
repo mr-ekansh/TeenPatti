@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
+  m_Name: PhotonServerSettings
+  m_EditorClassIdentifier: 
+  AppSettings:
+    AppIdRealtime: 03d7290b-326a-4b7a-8d27-0d1e5960ba5c
+    AppIdChat: 97345c15-9106-4094-8f03-4a433acb5da0
+    AppIdVoice: 
+    AppVersion: 1
+    UseNameServer: 1
+    FixedRegion: 
+    Server: 
+    Port: 0
+    ProxyServer: 
+    Protocol: 0
+    EnableProtocolFallback: 1
+    AuthMode: 0
+    EnableLobbyStatistics: 0
+    NetworkLogging: 1
+  DevRegion: in
+  PunLogging: 0
+  EnableSupportLogger: 0
+  RunInBackground: 1
+  StartInOfflineMode: 0
+  RpcList:
+  - AcceptSideShow
+  - AcceptSideShowOnlyMaster
+  - CallSideShow
+  - ChaalPlayer
+  - ClearFromGame
+  - ClickRpc
+  - DealAndarBahar
+  - DealJoker
+  - DeclineSideShow
+  - DeclineSideShowOnlyMaster
+  - DecreaseBet
+  - DestroyActivity
+  - DestroyRpc
+  - DestroySpaceship
+  - Disconnect
+  - EndAndarBaharGame
+  - EndTypeChat
+  - FinishedTurn
+  - Fire
+  - FirstBet
+  - GameStartAPI
+  - GiveMoney
+  - GlobalInfo
+  - IncreaseBet
+  - InitPLayerInManager
+  - InitTableData
+  - InitUI
+  - NewChat
+  - NewClearFromGame
+  - OnlySetPLayerDataInManager
+  - PackBot
+  - PackPlayer
+  - PackPlayerByServer
+  - PanelOff
+  - PauseActivity
+  - ProceedCallSideShowOnServer
+  - ProceedPackOnServer
+  - ReorderChairsPositionsOnTable
+  - ReplaceSideWithShow
+  - RespawnSpaceship
+  - SetDealerIcon
+  - SetInGame
+  - SetNewCards
+  - SetSeenCardTrue
+  - SetTotal
+  - ShowCardForAll
+  - ShowCardsOpponet
+  - StartSideShow
+  - StartSideShowNotReverse
+  - StartStep
+  - StopStep
+  - SyncRoom
+  - UnPauseActivity
+  - UpdateBootAmount
+  - WinHand
+  DisableAutoOpenWizard: 1
+  ShowSettings: 1
+  DevRegionSetOnce: 0

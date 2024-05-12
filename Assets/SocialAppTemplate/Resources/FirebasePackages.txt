@@ -1,0 +1,11 @@
+	"com.google.firebase.app": "6.14.0",
+	"com.google.firebase.auth": "6.14.0",
+	"com.google.firebase.database": "6.14.0",
+	"com.google.firebase.functions": "6.14.0",
+	"com.google.firebase.messaging": "6.14.0",
+	"com.google.firebase.storage": "6.14.0",
+	"com.google.firebase.analytics": "6.14.0",
+	"com.google.firebase.remote-config":"6.14.0",
+	"com.google.firebase.crashlytics": "6.14.0",
+	"com.google.firebase.dynamic-links": "6.14.0",
+	 "com.google.firebase.instance-id": "6.14.0"
