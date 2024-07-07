@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using SocialApp;
 using System.Collections.Generic;
+//using OneDevApp.SmartCredentials;
 //using Facebook.Unity;
 
 [Serializable]
@@ -47,7 +48,7 @@ public class PlayerSave : MonoBehaviour
     public double chalLimit = 0;
     public double potLimit = 0;
     public string _TableId = "";
-    public bool debug = true;
+    public bool debug = false;
     internal readonly string RegistrationAPI = "/api/registration";
     internal readonly string LoginAPI = "/api/registration?mobile=";
     internal string GetUserDetailsAPIUrl = "";
@@ -192,7 +193,7 @@ public class PlayerSave : MonoBehaviour
     [SerializeField] public List<UserInfo> botsServerData;
     // Use this for initialization
     #region UpdateToken
-    internal readonly string UpdateTokenAPI = "/api/updatetoken";
+    internal readonly string UpdateTokenAPI = "admin/updatetoken";
     #endregion
 
     void Awake()
@@ -819,9 +820,10 @@ public class PlayerSave : MonoBehaviour
     }
     public IEnumerator GetUserDetailsRequest(string url, bool debug, string newId, Action<ServerUserDetailsResponseAddPot> _callback,int _second)
     {
-        //Debug.Log("url " + url);
+        Debug.Log("url " + url);
         UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();
+        Debug.Log("response is " + www.downloadHandler.text);
         if (www.isNetworkError || www.isHttpError)
         {
             if (debug)
@@ -838,6 +840,17 @@ public class PlayerSave : MonoBehaviour
         }
         else
         {
+            //Debug.Log("start listening for OTP");
+            //SmartCredentialsManager.Instance.StartListeningForOTP((otpValue, status) =>
+            //{
+            //    Debug.Log("status is " + status);
+            //    Debug.Log("my otp is " + otpValue);
+            //    if (status == (int)OTPErrorCode.SMS_RECEIVER_OPT_RECEIVED)
+            //    {
+            //        Debug.Log("My otp is " + otpValue);
+            //        SmartCredentialsManager.Instance.StopListeningForOTP();
+            //    }
+            //}, @"\d{6}");
             if (debug)
             {
                Debug.Log("www getuserDetails" + www.downloadHandler.text);
@@ -852,8 +865,8 @@ public class PlayerSave : MonoBehaviour
             Debug.Log("URL: " + url);
         }
         StopCoroutine(GetUserDetailsRequest(url, debug, newId, _callback,_second));
-        yield return StartCoroutine(GetUserDetailsRequest(url, debug, newId, _callback,_second));
-
+        yield return StartCoroutine(GetUserDetailsRequest(url, debug, newId, _callback, _second));
+        
         try
         {
             string result = _serverGetUserDetailsResponse;
@@ -862,6 +875,7 @@ public class PlayerSave : MonoBehaviour
             {
                 Debug.Log("result " + result);
             }
+            
             ServerUserDetailsResponseAddPot serverUserDetailsResponse = JsonUtility.FromJson<ServerUserDetailsResponseAddPot>(result.ToString());
 
             if (serverUserDetailsResponse != null)
@@ -3325,12 +3339,27 @@ public class PlayerSave : MonoBehaviour
                         if(StaticValues.getBannerImageDetails.Count > _i)
                         {
                             StaticValues.getBannerImageDetails[_i].sprite1 = Sprite.Create(_texture, new Rect(0.0f, 0.0f, _texture.width, _texture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                            StaticValues.getBannerImageDetails[_i].isDay = checkDay(StaticValues.getBannerImageDetails[_i].weeklydays);
                         }
                     }
                   
                 }
             }
         }
+    }
+
+    private bool checkDay(string myDays)
+    {
+        bool dayBool = false;
+        List<string> daysList = new List<string>(myDays.Split(','));
+        foreach (string day in daysList)
+        {
+            if(DateTime.Today.DayOfWeek.ToString().ToUpper() ==  day.ToUpper())
+            {
+                dayBool = true;
+            }
+        }
+        return dayBool;
     }
 
 
@@ -4362,6 +4391,7 @@ public class PlayerSave : MonoBehaviour
 
     IEnumerator GameWithdrawDetailsRequest(string url, string json,Action<WithdrawRefundDetailsResponse> _action)
     {
+        Debug.Log(url);
         if (debug)
         {
             Debug.Log("json in GameWithdrawDetailsRequest " + json);
@@ -4895,7 +4925,7 @@ public class PlayerSave : MonoBehaviour
         {
             Debug.Log("json in UpdateTokenUserRequest" + url + " " + json);
         }
-        var uwr = new UnityWebRequest(url, "POST");
+        var uwr = new UnityWebRequest(url, "PUT");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
         uwr.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
         uwr.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
@@ -4908,19 +4938,16 @@ public class PlayerSave : MonoBehaviour
         {
             if (debug)
             {
-                Debug.Log("Error While Sending: " + uwr.error);
+                Debug.Log("Error While Sending: Firebase" + uwr.error);
             }
-            
         }
         else
         {
             if (debug)
             {
-                Debug.Log("Received: " + uwr.downloadHandler.text);
+                Debug.Log("Received: Firebase" + uwr.downloadHandler.text);
             }
-          
         }
-
     }
     #endregion
 
@@ -5412,9 +5439,12 @@ public class GetBannerImageDetail
     public double amount;
     public double mininum_amount;
     public string extralbanner_url;
-    public bool extralbannercheck;
+    public bool extraBannerCheck;
     public Sprite sprite1;
+    public string weeklydays;
+    public bool isDay;
 }
+
 [Serializable]
 public class GetReferImageDetail
 {

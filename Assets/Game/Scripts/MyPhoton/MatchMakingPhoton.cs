@@ -740,6 +740,7 @@ public class MatchMakingPhoton : MonoBehaviourPunCallbacks
 		isPrivateOnceList=false;
 		isPrivateCreateOnceList=false;
 
+        Debug.Log("set amount 2");
         if (bootAmount == BootAmount.Standard || bootAmount == BootAmount.Private)
         {
             if (!string.IsNullOrEmpty(StaticValues.UserNameValue))
@@ -868,7 +869,8 @@ public class MatchMakingPhoton : MonoBehaviourPunCallbacks
     }
     public void SetChaalLimit(double _chaalLimit)
     {
-        switch(_chaalLimit)
+        Debug.Log("set amount 3 " + _chaalLimit);
+        switch (_chaalLimit)
         {
             case 0.01:
                 {
@@ -1098,6 +1100,7 @@ public class MatchMakingPhoton : MonoBehaviourPunCallbacks
 
                 
         }
+        Debug.Log("pot limit is " + PlayerSave.singleton.potLimit);
         
     }
     private void CreateOrJoinGame(eTable eTableRoom)
@@ -1887,6 +1890,7 @@ public class MatchMakingPhoton : MonoBehaviourPunCallbacks
     {
         if (_Index >= 0 && _Index < 12)
         {
+            Debug.Log("set amount");
             _SelectedIndex = _Index;
             SetBootAmount(StaticValues.BootAmount[_Index]);
         }
@@ -1897,151 +1901,160 @@ public class MatchMakingPhoton : MonoBehaviourPunCallbacks
     }
     public void SetChaalLimitRefresh(double _chaalLimit)
     {
-        switch (_chaalLimit)
+        //switch (_chaalLimit)
+        //{
+        //    case 0.01:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 0 && StaticValues.PotLimit.Length > 0)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[0];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[0];
+        //            }
+        //        }
+        //        break;
+
+        //    case 0.05:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 1 && StaticValues.PotLimit.Length > 1)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[1];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[1];
+        //            }
+        //        }
+        //        break;
+
+
+
+        //    case 0.1:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 2 && StaticValues.PotLimit.Length > 2)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[2];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[2];
+        //            }
+        //        }
+        //        break;
+
+        //    case 0.25:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 3 && StaticValues.PotLimit.Length > 3)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[3];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[3];
+        //            }
+        //        }
+        //        break;
+
+        //    case 0.5:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 4 && StaticValues.PotLimit.Length > 4)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[4];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[4];
+        //            }
+        //        }
+        //        break;
+
+        //    case 1:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 5 && StaticValues.PotLimit.Length > 5)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[5];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[5];
+        //            }
+        //        }
+        //        break;
+
+
+
+        //    case 2:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 6 && StaticValues.PotLimit.Length > 6)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[6];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[6];
+        //            }
+        //        }
+        //        break;
+
+
+        //    case 3:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 7 && StaticValues.PotLimit.Length > 7)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[7];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[7];
+        //            }
+        //        }
+        //        break;
+
+
+
+        //    case 4:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 8 && StaticValues.PotLimit.Length > 8)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[8];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[8];
+        //            }
+        //        }
+        //        break;
+
+        //    case 5:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 9 && StaticValues.PotLimit.Length > 9)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[9];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[9];
+        //            }
+        //        }
+        //        break;
+
+
+
+        //    case 10:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 10 && StaticValues.PotLimit.Length > 10)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[10];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[10];
+        //            }
+        //        }
+        //        break;
+
+
+        //    case 20:
+        //        {
+        //            if (StaticValues.ChaalLimit.Length > 11 && StaticValues.PotLimit.Length > 11)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[11];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[11];
+        //            }
+        //        }
+        //        break;
+
+
+
+        //    default:
+        //        {
+        //            Debug.Log("run default method " + PlayerSave.singleton.potLimit);
+        //            PlayerSave.singleton.chalLimit = 1.28;
+        //            PlayerSave.singleton.potLimit = 10.24;
+        //            if (_SelectedIndex >= 0 && _SelectedIndex < 12)
+        //            {
+        //                PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[_SelectedIndex];
+        //                PlayerSave.singleton.potLimit = StaticValues.PotLimit[_SelectedIndex];
+        //            }
+        //            Debug.Log("checking 1233333 " + PlayerSave.singleton.potLimit);
+        //        }
+        //        break;
+        //}
+        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[0];
+        PlayerSave.singleton.potLimit = StaticValues.PotLimit[0];
+        if (_SelectedIndex >= 0 && _SelectedIndex < 12)
         {
-            case 0.01:
-                {
-                    if (StaticValues.ChaalLimit.Length > 0 && StaticValues.PotLimit.Length > 0)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[0];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[0];
-                    }
-                }
-                break;
-
-            case 0.05:
-                {
-                    if (StaticValues.ChaalLimit.Length > 1 && StaticValues.PotLimit.Length > 1)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[1];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[1];
-                    }
-                }
-                break;
-
-
-
-            case 0.1:
-                {
-                    if (StaticValues.ChaalLimit.Length > 2 && StaticValues.PotLimit.Length > 2)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[2];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[2];
-                    }
-                }
-                break;
-
-            case 0.25:
-                {
-                    if (StaticValues.ChaalLimit.Length > 3 && StaticValues.PotLimit.Length > 3)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[3];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[3];
-                    }
-                }
-                break;
-
-            case 0.5:
-                {
-                    if (StaticValues.ChaalLimit.Length > 4 && StaticValues.PotLimit.Length > 4)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[4];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[4];
-                    }
-                }
-                break;
-
-            case 1:
-                {
-                    if (StaticValues.ChaalLimit.Length > 5 && StaticValues.PotLimit.Length > 5)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[5];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[5];
-                    }
-                }
-                break;
-
-         
-
-            case 2:
-                {
-                    if (StaticValues.ChaalLimit.Length > 6 && StaticValues.PotLimit.Length > 6)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[6];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[6];
-                    }
-                }
-                break;
-         
-
-            case 3:
-                {
-                    if (StaticValues.ChaalLimit.Length > 7 && StaticValues.PotLimit.Length > 7)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[7];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[7];
-                    }
-                }
-                break;
-
-      
-
-            case 4:
-                {
-                    if (StaticValues.ChaalLimit.Length > 8 && StaticValues.PotLimit.Length > 8)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[8];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[8];
-                    }
-                }
-                break;
-
-            case 5:
-                {
-                    if (StaticValues.ChaalLimit.Length > 9 && StaticValues.PotLimit.Length > 9)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[9];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[9];
-                    }
-                }
-                break;
-
-          
-
-            case 10:
-                {
-                    if (StaticValues.ChaalLimit.Length > 10 && StaticValues.PotLimit.Length > 10)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[10];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[10];
-                    }
-                }
-                break;
-
-          
-            case 20:
-                {
-                    if (StaticValues.ChaalLimit.Length > 11 && StaticValues.PotLimit.Length > 11)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[11];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[11];
-                    }
-                }
-                break;
-
-          
-          
-            default:
-                {
-                    PlayerSave.singleton.chalLimit = 1.28;
-                    PlayerSave.singleton.potLimit = 10.24;
-                    if (_SelectedIndex >= 0 && _SelectedIndex < 12)
-                    {
-                        PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[_SelectedIndex];
-                        PlayerSave.singleton.potLimit = StaticValues.PotLimit[_SelectedIndex];
-                    }
-                }
-                break;
+            PlayerSave.singleton.chalLimit = StaticValues.ChaalLimit[_SelectedIndex];
+            PlayerSave.singleton.potLimit = StaticValues.PotLimit[_SelectedIndex];
         }
 
     }

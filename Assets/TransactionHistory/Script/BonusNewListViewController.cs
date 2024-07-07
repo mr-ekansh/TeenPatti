@@ -52,6 +52,7 @@ public class BonusNewListViewController : MonoBehaviour
     private IEnumerator OnLoadGraphic(GetBannerImageDetail getBannerImageDetail)
     {
         string _url = PlayerSave.singleton.BaseAPI + "" + getBannerImageDetail.benner_source;
+        Debug.Log(_url);
         if (!string.IsNullOrEmpty(_url) && (_url.StartsWith("http") || _url.StartsWith("file")))
         {
             UnityWebRequest www = UnityWebRequestTexture.GetTexture(_url);

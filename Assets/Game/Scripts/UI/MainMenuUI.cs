@@ -253,7 +253,7 @@ public class MainMenuUI : MonoBehaviour
     
 
     public static MainMenuUI menuUI;
-    public bool isDebug = true;
+    public bool isDebug = false;
     // Use this for initialization
     void Start()
     {
@@ -1632,7 +1632,7 @@ public class MainMenuUI : MonoBehaviour
                     {
                         for (int i = 0; i < StaticValues.getBannerImageDetails.Count; i++)
                         {
-                            if (StaticValues.getBannerImageDetails[i].extralbannercheck)
+                            if (StaticValues.getBannerImageDetails[i].extraBannerCheck)
                             {
                                 if (!string.IsNullOrEmpty(StaticValues.getBannerImageDetails[i].extralbanner_url) && PlayerSave.singleton.ReadTimestamp(StaticValues.getBannerImageDetails[i].couponcode))
                                 {
@@ -1640,25 +1640,28 @@ public class MainMenuUI : MonoBehaviour
                                     {
                                         if (!string.IsNullOrEmpty(StaticValues.getBannerImageDetails[i].couponcode))
                                         {
-                                            StaticValues.CurrentBonusCode = StaticValues.getBannerImageDetails[i].couponcode;
-                                            try
+                                            if (StaticValues.getBannerImageDetails[i].isDay)
                                             {
-                                                MyBonusIndex = StaticValues.getBannerImageDetails.FindIndex(x => x.couponcode.Contains(StaticValues.CurrentBonusCode));
-                                            }
-                                            catch
-                                            {
+                                                StaticValues.CurrentBonusCode = StaticValues.getBannerImageDetails[i].couponcode;
+                                                try
+                                                {
+                                                    MyBonusIndex = StaticValues.getBannerImageDetails.FindIndex(x => x.couponcode.Contains(StaticValues.CurrentBonusCode));
+                                                }
+                                                catch
+                                                {
 
-                                            }
-                                            if (StaticValues.getBannerImageDetails[i].sprite1 == null)
-                                            {
-                                                StopCoroutine(OnOfferImageLoadGraphic(StaticValues.getBannerImageDetails[i].extralbanner_url));
-                                                StartCoroutine(OnOfferImageLoadGraphic(StaticValues.getBannerImageDetails[i].extralbanner_url));
-                                            }
-                                            else
-                                            {
-                                                Panel_BonusPopUp.SetActive(true);
-                                                OfferPopUp.sprite = StaticValues.getBannerImageDetails[i].sprite1;
-                                                OfferPopUp.rectTransform.sizeDelta = new Vector2(StaticValues.getBannerImageDetails[i].sprite1.rect.width, StaticValues.getBannerImageDetails[i].sprite1.rect.height);
+                                                }
+                                                if (StaticValues.getBannerImageDetails[i].sprite1 == null)
+                                                {
+                                                    StopCoroutine(OnOfferImageLoadGraphic(StaticValues.getBannerImageDetails[i].extralbanner_url));
+                                                    StartCoroutine(OnOfferImageLoadGraphic(StaticValues.getBannerImageDetails[i].extralbanner_url));
+                                                }
+                                                else
+                                                {
+                                                    Panel_BonusPopUp.SetActive(true);
+                                                    OfferPopUp.sprite = StaticValues.getBannerImageDetails[i].sprite1;
+                                                    OfferPopUp.rectTransform.sizeDelta = new Vector2(StaticValues.getBannerImageDetails[i].sprite1.rect.width, StaticValues.getBannerImageDetails[i].sprite1.rect.height);
+                                                }
                                             }
                                         }
                                     }
@@ -3680,7 +3683,7 @@ public class MainMenuUI : MonoBehaviour
         AddCashBg_2.SetActive(false);
         MiniStatement.SetActive(false);
 
-        amountInputField.text = "200";
+        //amountInputField.text = "200";
         bonusInputField.text = "";
         StaticValues.CurrentAddCashIndex = 2;
         ApplyBonusCodeBtn.interactable = true;
@@ -3722,7 +3725,7 @@ public class MainMenuUI : MonoBehaviour
         AddCashBg_2.SetActive(false);
         MiniStatement.SetActive(false);
 
-        amountInputField.text = "200";
+        //amountInputField.text = "200";
         bonusInputField.text = "";
         StaticValues.CurrentAddCashIndex = 2;
         ApplyBonusCodeBtn.interactable = true;
@@ -3813,6 +3816,7 @@ public class MainMenuUI : MonoBehaviour
     }
     public void CallBeforeRefreshAddCashPage()
     {
+        Debug.Log("refresh page etto");
         try
         {
             double StaticAmount = 20000;
@@ -3860,6 +3864,7 @@ public class MainMenuUI : MonoBehaviour
         }
         catch
         {
+            Debug.Log("caught the statement");
             MyBonusIndex = 0;
         }
     }
@@ -3887,7 +3892,7 @@ public class MainMenuUI : MonoBehaviour
                 if (StaticValues.CurrentAddCashIndex == 3)
                 {
 
-                    amountInputField.text = "0";
+                    //amountInputField.text = "0";
                 }
             }
         }

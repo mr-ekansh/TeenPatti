@@ -38,8 +38,6 @@ public class UnitySMSReceiver : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        
-
         yield return new WaitForSeconds(1f);
         int savedCred = PlayerPrefs.GetInt(Utils.LOGGED, Utils.NONE);
         if (savedCred == 0)

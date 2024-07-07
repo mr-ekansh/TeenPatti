@@ -12,7 +12,7 @@ using System.Security.Policy;
 public class AddCashOffice : MonoBehaviour
 {
    
-    private bool debug = true;
+    private bool debug = false;
 
    
     public static string _m_url;
@@ -45,8 +45,17 @@ public class AddCashOffice : MonoBehaviour
     public GameObject ForWebViewCanvas;
     void OnEnable()
     {
-
-
+        Debug.Log("run whole");
+        if (!PlayerPrefs.HasKey("MyLastDeposit"))
+        {
+            Debug.Log("run this");
+            amountText.text = "200";   
+        }
+        else
+        {
+            Debug.Log("run that");
+            amountText.text = PlayerPrefs.GetString("MyLastDeposit");
+        }
         debug = true;
 
         UniWebViewLogger.Instance.LogLevel = UniWebViewLogger.Level.Off;
@@ -256,6 +265,7 @@ public class AddCashOffice : MonoBehaviour
         MainMenuUI.OnCloseWebViewNowUI += CloseWebView;
 
         if (ForWebViewCanvas) ForWebViewCanvas.SetActive(false);
+        
     }
     void CloseWebView()
     {
@@ -437,6 +447,7 @@ public class AddCashOffice : MonoBehaviour
                                 {
                                     if (_AddPaymentDetails.phone.Length >= 10)
                                     {
+                                        PlayerPrefs.SetString("MyLastDeposit", amountText.text);
                                         AppManager.VIEW_CONTROLLER.ShowLoading();
                                         
                                         PostAddMoneyRequest(_AddPaymentDetails);
@@ -532,7 +543,6 @@ public class AddCashOffice : MonoBehaviour
 
     private string txnid = null;
     private bool ispayment = false;
-    private bool isPopupOnce = false;
     private int pollCount = 0;
     private Coroutine pollRoutine = null;
     private Coroutine checkpollRoutine = null;
@@ -556,9 +566,7 @@ public class AddCashOffice : MonoBehaviour
                         StopCoroutine(pollRoutine);
                         pollRoutine = null;
                     }
-                    isPopupOnce = false;
                     pollRoutine = StartCoroutine(StartPolling(PlayerSave.singleton.BaseAPI + "/easypay/status/" + txnid));
-                    AppManager.VIEW_CONTROLLER.HideLoading();
                     ispayment = false;
                 }
             }
@@ -607,6 +615,7 @@ public class AddCashOffice : MonoBehaviour
         PaymentData pollresponse = JsonUtility.FromJson<PaymentData>(result);
         if(pollresponse.status.ToUpper() == "SUCCESS")
         {
+            AppManager.VIEW_CONTROLLER.HideLoading();
             Debug.Log("sucess");
             PopupMessage msg = new PopupMessage();
             msg.Title = "Success";
@@ -620,6 +629,7 @@ public class AddCashOffice : MonoBehaviour
         }
         else if(pollresponse.status.ToUpper() == "FAILED")
         {
+            AppManager.VIEW_CONTROLLER.HideLoading();
             Debug.Log("failed");
             PopupMessage msg = new PopupMessage();
             msg.Title = "Error";
@@ -632,19 +642,7 @@ public class AddCashOffice : MonoBehaviour
         }
         else
         {
-            if (!isPopupOnce)
-            {
-                Debug.Log("pending");
-                PopupMessage msg = new PopupMessage();
-                msg.Title = "Pending";
-                msg.Message = "Your Deposit of Rs " + amountText.text.ToString() + " is in pending state, please wait for sometime while we process your payment.";
-                AppManager.VIEW_CONTROLLER.ShowPopupMessage(msg, 0);
-                if (MainMenuUI.menuUI != null)
-                {
-                    MainMenuUI.menuUI.RaiseOnBackButtonClick();
-                }
-                isPopupOnce = true;
-            }
+            Debug.Log("pending");
             if (pollCount < 4)
             {
                 yield return new WaitForSeconds(3);
@@ -655,6 +653,18 @@ public class AddCashOffice : MonoBehaviour
                 }
                 pollRoutine = StartCoroutine(StartPolling(PlayerSave.singleton.BaseAPI + "/easypay/status/" + txnid));
                 pollCount++;
+            }
+            else
+            {
+                AppManager.VIEW_CONTROLLER.HideLoading();
+                PopupMessage msg = new PopupMessage();
+                msg.Title = "Pending";
+                msg.Message = "Your Deposit of Rs " + amountText.text.ToString() + " is in pending state, please wait for sometime while we process your payment.";
+                AppManager.VIEW_CONTROLLER.ShowPopupMessage(msg, 0);
+                if (MainMenuUI.menuUI != null)
+                {
+                    MainMenuUI.menuUI.RaiseOnBackButtonClick();
+                }
             }
         }
 

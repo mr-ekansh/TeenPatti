@@ -222,9 +222,6 @@ public class BonusNewListLoader : MonoBehaviour
                         MessageLabel.text = MessageLabelValue.ToString();
                         MessageLabel.gameObject.SetActive(true);
                     }
-
-
-
                 }
             }
             else if (_callback.status.Equals("404"))
@@ -236,8 +233,6 @@ public class BonusNewListLoader : MonoBehaviour
                     MessageLabel.text = MessageLabelValue.ToString();
                     MessageLabel.gameObject.SetActive(true);
                 }
-
-
             }
             else
             {

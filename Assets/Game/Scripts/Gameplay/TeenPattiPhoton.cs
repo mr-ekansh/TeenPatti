@@ -788,6 +788,7 @@ public class TeenPattiPhoton : MonoBehaviourPunCallbacks, IOnEventCallback,IConn
                                         //Debug.Log("GetBotFromServer " + GetBotFromServer);
                                         if (_howManyBotInRoom > 0)
                                         {
+                                            Debug.Log("pot limit is " + PlayerSave.singleton.potLimit);
                                             PlayerSave.singleton.CallBotEnter(PlayerSave.singleton.bootAmount, PlayerSave.singleton.chalLimit, PlayerSave.singleton.potLimit, PlayerSave.singleton._TableId, "P", OnBotEnterResponse, managerInfo.CurrentRoomID, _howManyBotInRoom);
                                         }
                                     }
@@ -4149,6 +4150,7 @@ public class TeenPattiPhoton : MonoBehaviourPunCallbacks, IOnEventCallback,IConn
 
                             CardData randomCard;
                             bool valid;
+                            //int checkCount;
                             do
                             {
                                 if (typeTable == eTable.Ak47 && step == 2 && cacheCards[i].suitCard != eCardSuit.None)
@@ -4157,7 +4159,15 @@ public class TeenPattiPhoton : MonoBehaviourPunCallbacks, IOnEventCallback,IConn
                                 }
                                 else
                                 {
-                                    randomCard = deckManager.GetRandomCard();
+                                    //Debug.Log("getting RandomCards");
+                                    //if (!NewPlayers[i].playerData.IsBot)
+                                    //{
+                                    //    randomCard = deckManager.GetCustomCard();
+                                    //}
+                                    //else
+                                    //{
+                                        randomCard = deckManager.GetRandomCard();
+                                    //}
 									if(isDebug)
 									{
                                    		 Debug.Log("randomCard " + randomCard.rankCard);

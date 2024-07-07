@@ -16,21 +16,9 @@ namespace SocialApp
         private GameObject PopupObject = default;
         [SerializeField]
         private GameObject RegistrationObject = default;
-       
       
-       
         [SerializeField]
         private GameObject LoginObject = default;
-       
-       
-       
-       
-      
-       
-       
-       
-        
-      
        
         [SerializeField]
         public GameObject Rating = default;
@@ -123,7 +111,7 @@ namespace SocialApp
         private void UnitySMSReceiver_fetchOtpNumber(string otp_no)
         {
             //Debug.Log("recieved otp_no..." + otp_no);
-            
+
             if (!string.IsNullOrEmpty(otp_no))
             {
                 VerifyCode.text = otp_no;
@@ -646,6 +634,7 @@ namespace SocialApp
                             {
                                 text6.text = receivedCode[5].ToString();
                             }
+                            VerifyReceivedPhoneCode();
                         }
                     }
                 }
